@@ -1,0 +1,26 @@
+{
+    "login": {
+        "title": "Iniciar sesión",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "remember": "Recordar",
+        "forgot": "¿Olvidaste tu contraseña?",
+        "login": "Iniciar sesión",
+        "register": "Registrarse",
+        "formLogin": "Iniciar sesión",
+        "formTitle": "Inicio de Sesión - Backoffice",
+        "emailLabel": "Correo electrónico",
+        "emailPlaceholder": "Email: usuario@acrolix.tech",
+        "passwordLabel": "Contraseña",
+        "passwordPlaceholder": "Contraseña",
+        "error": {
+            "email": {
+                "required": "El correo es requerido",
+                "invalidDomain": "Debe pertenecer a la empresa"
+            },
+            "password": {
+                "required": "La contraseña es requerida"
+            }
+        }
+    }
+}
