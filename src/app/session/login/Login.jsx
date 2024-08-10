@@ -1,19 +1,24 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import "./Login.css";
 import { useTranslation } from "react-i18next";
-
 import Slogan from "../../../assets/slogan.svg";
+import "./Login.css";
+import { AuthContext } from "../../../context/authContext";
 
 export default function Login() {
   const { t } = useTranslation("", { keyPrefix: "login" });
+  const { login } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
     data.preventDefault;
     console.log(data);
+    login();
   };
 
   return (

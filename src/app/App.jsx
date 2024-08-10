@@ -1,28 +1,18 @@
-import { createContext, lazy, Suspense, useContext } from "react";
+import { lazy, Suspense, useContext } from "react";
 import "./App.css";
-
+import { AuthContext } from "../context/authContext.jsx";
+import LoadingPage from "../commons/LoadingPage/LoadingPage.jsx";
 const Login = lazy(() => import("./session/login/Login.jsx"));
 const Layout = lazy(() => import("./layout/Layout.jsx"));
 
-const AuthContext = createContext({ isLoggedIn: false });
-
 function App() {
-  const { isLoggedIn } = useContext(AuthContext);
-
-  const LoadApp = () => {
-    if (isLoggedIn) {
-      return <Layout />;
-    }
-    return <Login />;
-  };
+  const { isLogged, loading } = useContext(AuthContext);
 
   return (
-    <AuthContext.Provider value={isLoggedIn}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <title>Cromalink Backoffice</title>
-        <LoadApp />
-      </Suspense>
-    </AuthContext.Provider>
+    <Suspense fallback={<LoadingPage />}>
+      <title>Cromalink Backoffice</title>
+      {loading ? <LoadingPage /> : isLogged ? <Layout /> : <Login />}
+    </Suspense>
   );
 }
 

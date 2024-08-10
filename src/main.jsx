@@ -1,10 +1,10 @@
+import i18n from "i18next";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./app/App.jsx";
-import "./index.css";
-import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
+import App from "./app/App.jsx";
+import { AuthProvider } from "./context/authContext.jsx";
+import "./index.css";
 import * as es from "./locales/es.json";
 
 i18n.use(initReactI18next).init({
@@ -22,6 +22,8 @@ i18n.use(initReactI18next).init({
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </StrictMode>
 );
