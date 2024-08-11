@@ -22,5 +22,18 @@
                 "required": "La contraseña es requerida"
             }
         }
+    },
+    "layout": {
+        "navbar": {
+            "postslink" : "Publicaciones",
+            "userslink" : "Usuarios",
+            "eventslink" : "Eventos",
+            "btnSettings" : {
+                "settings" : "Configuración",
+                "profile" : "Perfil",
+                "logout" : "Cerrar sesión",
+                "language" : "Idioma"
+            }
+        }
     }
 }

@@ -1,0 +1,39 @@
+{
+    "login": {
+        "title": "Sign In",
+        "email": "Email",
+        "password": "Password",
+        "remember": "Remember",
+        "forgot": "Forgot your password?",
+        "login": "Sign In",
+        "register": "Register",
+        "formLogin": "Sign In",
+        "formTitle": "Login - Backoffice",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Email: user@acrolix.tech",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "error": {
+            "email": {
+                "required": "Email is required",
+                "invalidDomain": "Must belong to the company"
+            },
+            "password": {
+                "required": "Password is required"
+            }
+        }
+    },
+    "layout": {
+        "navbar": {
+            "postslink" : "Posts",
+            "userslink" : "Users",
+            "eventslink" : "Events",
+            "btnSettings" : {
+                "settings" : "Settings",
+                "profile" : "Profile",
+                "logout" : "Logout",
+                "language" : "Language"
+            }
+        }
+    }
+}
