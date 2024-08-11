@@ -1,6 +1,6 @@
 import { lazy, Suspense, useContext } from "react";
 import "./App.css";
-import { AuthContext } from "../context/authContext.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
 import LoadingPage from "../commons/LoadingPage/LoadingPage.jsx";
 const Login = lazy(() => import("./session/login/Login.jsx"));
 const Layout = lazy(() => import("./layout/Layout.jsx"));

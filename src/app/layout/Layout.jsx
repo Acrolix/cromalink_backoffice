@@ -1,9 +1,8 @@
+import { Route, Routes } from "react-router";
 import Eslogan from "../../assets/eslogan.svg";
 import Logo from "../../assets/logo.svg";
-
-import "./Layout.css";
 import Navbar from "./drawer/Navbar";
-
+import "./Layout.css";
 export default function Layout() {
   return (
     <>
@@ -24,7 +23,11 @@ export default function Layout() {
       <div className="layoutContainer">
         <Navbar />
         <main className="layoutMain">
-          <h1>Hola Mundo</h1>
+          <Routes>
+            <Route path="/" element={<h1></h1>} />
+            <Route path="/users" element={<h1>Usuarios</h1>} />
+            <Route path="/events" element={<h1>Eventos</h1>} />
+          </Routes>
         </main>
       </div>
     </>

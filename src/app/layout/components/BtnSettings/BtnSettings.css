@@ -1,0 +1,50 @@
+.btnSettingsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnSettings {
+    margin: 0 auto 1em;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btnSettingsIconOpt {
+    font-size: 1rem;
+    margin-right: 0.5em;
+}
+
+.btnSettingsIcon {
+    font-size: 1.5rem;
+}
+
+.btnSettingsMenu {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    margin: 1em 1em 0;
+    
+}
+
+.btnSettingsMenuItem {
+    background: none;
+    height: 2.5em;
+    line-height: 1em;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 0.2em .5em;
+    margin-bottom: 0.2em;
+    transition: color 0.25s;
+}
+
+.btnSettingsMenuItem:last-child {
+    margin-bottom: 0;
+}
+
+.btnSettingsMenuItem:hover {
+    color: var(--color-primary);
+    
+}
