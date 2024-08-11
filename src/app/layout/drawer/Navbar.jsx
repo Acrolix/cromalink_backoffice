@@ -9,7 +9,10 @@ export default function Navbar() {
     <nav className="layoutNav">
       <ul className="navList">
         <li className="navItem">
-          <BtnLink to="/">{t("postslink")}</BtnLink>
+          <BtnLink to="/">{t("dashboardLink")}</BtnLink>
+        </li>
+        <li className="navItem">
+          <BtnLink to="/posts">{t("postslink")}</BtnLink>
         </li>
         <li className="navItem">
           <BtnLink to="/users">{t("userslink")}</BtnLink>

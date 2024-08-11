@@ -1,8 +1,15 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router";
 import Eslogan from "../../assets/eslogan.svg";
 import Logo from "../../assets/logo.svg";
 import Navbar from "./drawer/Navbar";
 import "./Layout.css";
+
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
+const PostsList = lazy(() => import("../pages/posts/PostsList"));
+const UsersList = lazy(() => import("../pages/users/UsersList"));
+const EventsList = lazy(() => import("../pages/events/EventsList"));
+
 export default function Layout() {
   return (
     <>
@@ -24,9 +31,14 @@ export default function Layout() {
         <Navbar />
         <main className="layoutMain">
           <Routes>
-            <Route path="/" element={<h1></h1>} />
-            <Route path="/users" element={<h1>Usuarios</h1>} />
-            <Route path="/events" element={<h1>Eventos</h1>} />
+            <Route
+              path="/"
+              element={<Dashboard />}
+              hydrateFallbackElement={<h1>Dash</h1>}
+            />
+            <Route path="/posts" element={<PostsList />} />
+            <Route path="/users" element={<UsersList />} />
+            <Route path="/events" element={<EventsList />} />
           </Routes>
         </main>
       </div>

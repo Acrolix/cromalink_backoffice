@@ -25,6 +25,7 @@
     },
     "layout": {
         "navbar": {
+            "dashboardLink": "Inicio",
             "postslink" : "Publicaciones",
             "userslink" : "Usuarios",
             "eventslink" : "Eventos",

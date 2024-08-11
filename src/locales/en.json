@@ -25,6 +25,7 @@
     },
     "layout": {
         "navbar": {
+            "dashboardLink": "Dashboard",
             "postslink" : "Posts",
             "userslink" : "Users",
             "eventslink" : "Events",
