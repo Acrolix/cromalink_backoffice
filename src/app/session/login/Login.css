@@ -4,7 +4,7 @@
   align-items: center;
   width: 500px;
   margin: 4em auto 0;
-  background-color: #1b1b1b;
+  background-color: var(--color-bg-secondary);
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border: 1px solid #333;
@@ -18,16 +18,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background-color: var(--color-bg-tertiary);
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  color: white;
+  color: var(--color-primary);
   margin: 0;
 }
 
-.loginSlogan {
+.loginEslogan {
   width: 80%;
   margin: 3em 0;
+  filter: drop-shadow(2px 1px 1px #000);
 }
 
 .loginForm {
@@ -50,7 +51,7 @@
   font-size: 1.2em;
   line-height: 2em;
   height: 2em;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -59,7 +60,8 @@
   outline: none;
 }
 
-.fieldInput::placeholder, .fieldInput::-webkit-input-placeholder {
+.fieldInput::placeholder,
+.fieldInput::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -68,10 +70,10 @@
   width: 96%;
   font-size: 0.875em;
   max-height: 1.2em;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   border-radius: 5px;
   color: #dc3545;
-  margin-top: .2em;
+  margin-top: 0.2em;
 }
 
 .hasError {
@@ -81,17 +83,17 @@
 
 .loginButton {
   width: 80%;
-  height: 3em;
+  height: 3rem;
   margin: 0.5em 0;
   padding: 0.5em;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: var(--color-bg-tertiary);
   cursor: pointer;
 }
-
-
 
 .loginFooter {
   width: 100%;
@@ -100,7 +102,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 2.5em;
-  background-color: #333;
+  background-color: var(--color-bg-tertiary);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import Slogan from "../../../assets/slogan.svg";
+import Eslogan from "../../../assets/eslogan.svg";
 import "./Login.css";
 import { AuthContext } from "../../../context/authContext";
 
@@ -24,7 +24,7 @@ export default function Login() {
   return (
     <div className="loginContainer">
       <h1 className="formTitle">{t("formTitle")}</h1>
-      <img src={Slogan} alt="Cromalink slogan" className="loginSlogan" />
+      <img src={Eslogan} alt="Cromalink eslogan" className="loginEslogan" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="loginForm"
