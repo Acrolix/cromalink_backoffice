@@ -22,12 +22,17 @@
 .layoutContainer {
   display: flex;
   flex-direction: row;
-  height: calc(100lvh - 61px);
+  height: calc(100vh - 61px);
 }
 
 .layoutMain {
-  flex-direction: column;
+  display: flex;
+  position: relative;
+  padding: 1em;
   width: 100%;
-  padding: 20px;
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-secondary) var(--color-bg-secondary);
   background-color: var(--color-bg-primary);
 }

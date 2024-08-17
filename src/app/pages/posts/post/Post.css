@@ -1,0 +1,39 @@
+.postBody {
+  display: grid;
+  grid-template-columns: 5fr 0.8fr 0.1fr 1fr 1fr;
+  align-items: center;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 0 1em;
+}
+
+.postBody:last-child {
+  margin-bottom: 0;
+}
+
+.postBody:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.postTitle {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1em;
+  color: var(--color-primary);
+}
+
+.postUser {
+  justify-self: right;
+  font-size: 1.3em;
+  color: var(--color-secondary);
+}
+
+.postDate {
+  justify-self: right;
+  color: var(--color-secondary);
+}
