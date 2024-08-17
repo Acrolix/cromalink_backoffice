@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Eslogan from "../../../assets/eslogan.svg";
 import "./Login.css";
-import { AuthContext } from "../../../context/authContext";
+import { AuthContext } from "../../../context/AuthContext";
 
 export default function Login() {
   const { t } = useTranslation("", { keyPrefix: "login" });

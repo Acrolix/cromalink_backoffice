@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
       setTimeout(() => {
         setLoading(false);
         setIsLogged(true);
-      }, 2000);
+      }, 1000);
     } else {
       setIsLogged(false);
       setLoading(false);
