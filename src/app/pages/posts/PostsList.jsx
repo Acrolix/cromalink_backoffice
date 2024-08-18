@@ -1,20 +1,11 @@
-import { useState } from "react";
-import "./PostsList.css";
-import { useEffect } from "react";
-import API from "../../../api";
-import Post from "./post/Post";
 import LoadingPage from "../../../commons/LoadingPage/LoadingPage";
+import usePosts from "../../hooks/posts/usePosts";
+import Post from "./Post";
+
+import "./postsStyles/PostsList.css";
 
 export default function PostsList() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    API.getPosts().then((data) => {
-      setPosts(data.data);
-      setLoading(false);
-    });
-  }, []);
+  const { posts, loading } = usePosts();
 
   return (
     <section className="postsList">

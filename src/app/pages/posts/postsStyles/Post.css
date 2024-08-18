@@ -1,6 +1,6 @@
 .postBody {
   display: grid;
-  grid-template-columns: 5fr 0.8fr 0.1fr 1fr 1fr;
+  grid-template-columns: 5fr 0.8fr 0.6fr 1fr 1fr;
   align-items: center;
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-primary);
@@ -23,6 +23,7 @@
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 1.2em;
   margin: 1em;
   color: var(--color-primary);
 }
@@ -36,4 +37,22 @@
 .postDate {
   justify-self: right;
   color: var(--color-secondary);
+}
+
+.postComments {
+  justify-self: right;
+  color: var(--color-secondary);
+}
+
+.postComments b {
+  color: var(--color-primary);
+}
+
+.postReactions {
+  justify-self: right;
+  color: var(--color-secondary);
+}
+
+.postReactions b {
+  color: var(--color-primary);
 }

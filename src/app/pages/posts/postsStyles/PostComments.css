@@ -1,0 +1,36 @@
+.postDetailComment {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: var(--color-bg-secondary);
+  border-radius: 10px;
+}
+
+.postDetailComment:first-child {
+  margin-top: 1em;
+}
+
+.postDetailCommentDetail {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.postDetailCommentDetailUser {
+  color: var(--color-primary);
+}
+
+.postDetailCommentDetailUser span {
+  background-color: var(--color-secondary);
+  color: var(--color-bg-secondary);
+  padding: 0.1em 0.5em;
+  border-radius: 10px;
+  font-size: 0.8em;
+  margin-right: 1em;
+}
+
+.postDetailCommentDetailDate {
+  color: var(--color-primary);
+}
