@@ -1,12 +1,16 @@
 .loading {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
   justify-self: center;
-  height: 200px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   max-width: 100vw;
-  overflow: hidden;
+  z-index: 1000;
 }
 
 .loading__container {

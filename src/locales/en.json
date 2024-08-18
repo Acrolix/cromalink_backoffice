@@ -36,5 +36,11 @@
                 "language" : "Language"
             }
         }
+    },
+    "posts": {
+        "comments": "Comments",
+        "reactions" : "Likes",
+        "open" : "Open",
+        "goBack" : "Go back"
     }
 }

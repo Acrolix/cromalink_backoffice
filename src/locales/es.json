@@ -38,6 +38,9 @@
         }
     },
     "posts": {
-        "comments": "Comentarios"
+        "comments": "Comentarios",
+        "reactions" : "Me gusta",
+        "open" : "Abrir",
+        "goBack" : "Regresar"
     }
 }
