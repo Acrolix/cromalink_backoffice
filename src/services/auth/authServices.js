@@ -1,7 +1,11 @@
-import axios from 'axios';
+import { API, APIAuth } from "../api";
 
-async function loginService(email, password) {
-  return await axios.post('/api/auth/login', { email, password });
+async function loginService(email, password, remember_me) {
+  return await API({}).post("/auth/login", { email, password, remember_me });
 }
 
-export default {loginService};
+async function logoutService() {
+  return await APIAuth({}).post("/auth/logout");
+}
+
+export { loginService, logoutService };

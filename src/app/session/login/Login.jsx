@@ -17,8 +17,7 @@ export default function Login() {
 
   const onSubmit = (data) => {
     data.preventDefault;
-    console.log(data);
-    login();
+    login(data);
   };
 
   return (
@@ -66,6 +65,11 @@ export default function Login() {
             {errors.password?.message && errors.password?.message}
           </span>
         </div>
+
+        <label className="rememberMe">
+          <input type="checkbox" {...register("remember")} />
+          {t("remember")}
+        </label>
 
         <button type="submit" className="loginButton">
           Login
