@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
+import { loginService } from "../services/auth/authServices";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -19,8 +21,10 @@ export const AuthProvider = ({ children }) => {
   }, [isLogged]);
 
   const login = () => {
-    setIsLogged(true);
-    localStorage.setItem("isLogged", "true");
+    loginService().then(() => {
+      setIsLogged(true);
+      localStorage.setItem("isLogged", true);
+    });
   };
 
   const logout = () => {
