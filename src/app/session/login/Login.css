@@ -93,6 +93,13 @@
   background-color: var(--color-primary);
   color: var(--color-bg-tertiary);
   cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.loginButton:hover {
+  background-color: var(--color-primary);
+  opacity: 1;
 }
 
 .loginFooter {
@@ -100,9 +107,44 @@
   display: flex;
   align-self: baseline;
   justify-content: center;
-  align-items: center;
+  align-items: right;
   margin-top: 2.5em;
   background-color: var(--color-bg-tertiary);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+.checkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 80%;
+}
+
+.rememberMe {
+  font-size: 1em;
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.rememberMe input {
+  margin-right: 0.5em;
+}
+
+.loadingBtn {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  border: 0.3em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+
+  animation: 1s linear infinite spinner;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
 }

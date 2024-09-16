@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../../context/AuthContext";
 import { useTranslation } from "react-i18next";
+import { AuthContext } from "../../../../context/authContext";
 import "./BtnSettings.css";
 
 export default function BtnSettings() {

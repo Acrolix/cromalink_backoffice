@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
+import { loginService, logoutService } from "../services/auth/authServices";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -7,7 +9,13 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (localStorage.getItem("isLogged") === "true") {
+    const isLogged =
+      localStorage.getItem("accessToken") ||
+      sessionStorage.getItem("accessToken")
+        ? true
+        : false;
+
+    if (isLogged) {
       setTimeout(() => {
         setLoading(false);
         setIsLogged(true);
@@ -18,15 +26,27 @@ export const AuthProvider = ({ children }) => {
     }
   }, [isLogged]);
 
-  const login = () => {
-    setIsLogged(true);
-    localStorage.setItem("isLogged", "true");
+  const login = async ({ email, password, remember }) => {
+    await loginService(email, password, remember)
+      .then((data) => {
+        const accessToken = data.data.access_token;
+        remember
+          ? localStorage.setItem("accessToken", accessToken)
+          : sessionStorage.setItem("accessToken", accessToken);
+        setIsLogged(true);
+        return true;
+      })
+      .catch(() => {
+        setIsLogged(false);
+      });
   };
 
   const logout = () => {
-    setIsLogged(false);
-    localStorage.removeItem("isLogged");
-    location.reload();
+    logoutService().finally(() => {
+      localStorage.removeItem("accessToken");
+      sessionStorage.removeItem("accessToken");
+      location.reload();
+    });
   };
 
   return (
