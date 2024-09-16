@@ -1,13 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Eslogan from "../../../assets/eslogan.svg";
 import "./Login.css";
 import { AuthContext } from "../../../context/authContext";
 
+const LoadingBtn = () => {
+  return <span className="loadingBtn"></span>;
+};
+
 export default function Login() {
   const { t } = useTranslation("", { keyPrefix: "login" });
   const { login } = useContext(AuthContext);
+
+  const [submitLoading, setSubmitLoading] = useState(false);
 
   const {
     register,
@@ -16,8 +22,11 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
+    setSubmitLoading(true);
     data.preventDefault;
-    login(data);
+    login(data).then(() => {
+      setSubmitLoading(false);
+    });
   };
 
   return (
@@ -66,13 +75,15 @@ export default function Login() {
           </span>
         </div>
 
-        <label className="rememberMe">
-          <input type="checkbox" {...register("remember")} />
-          {t("remember")}
-        </label>
+        <div className="checkContainer">
+          <label className="rememberMe">
+            <input type="checkbox" {...register("remember")} />
+            {t("remember")}
+          </label>
+        </div>
 
         <button type="submit" className="loginButton">
-          Login
+          {submitLoading ? <LoadingBtn /> : t("login")}
         </button>
       </form>
       <small className="loginFooter">

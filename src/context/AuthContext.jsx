@@ -26,14 +26,15 @@ export const AuthProvider = ({ children }) => {
     }
   }, [isLogged]);
 
-  const login = ({ email, password, remember }) => {
-    loginService(email, password, remember)
+  const login = async ({ email, password, remember }) => {
+    await loginService(email, password, remember)
       .then((data) => {
         const accessToken = data.data.access_token;
         remember
           ? localStorage.setItem("accessToken", accessToken)
           : sessionStorage.setItem("accessToken", accessToken);
         setIsLogged(true);
+        return true;
       })
       .catch(() => {
         setIsLogged(false);
