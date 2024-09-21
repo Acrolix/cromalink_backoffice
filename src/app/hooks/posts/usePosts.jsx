@@ -14,7 +14,7 @@ export default function usePosts(id = false) {
       return;
     }
     PostsService.getPosts().then((data) => {
-      setPosts(data.data);
+      setPosts(data);
       setLoading(false);
     });
   }, [id]);

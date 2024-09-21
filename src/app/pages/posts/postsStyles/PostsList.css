@@ -1,3 +1,30 @@
+.postsListContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+}
+
+.postsListTitle {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.postsList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+}
+
+.postsListFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 1em;
+}
+
 .postsList {
   display: flex;
   flex-direction: column;

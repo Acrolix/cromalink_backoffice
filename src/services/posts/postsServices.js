@@ -7,9 +7,9 @@ class PostsService {
     }
   }
 
-  async getPosts() {
-    const response = await APIAuth().get("/publications");
-    return response.data;
+  async getPosts(page = 1) {
+    const response = await APIAuth().get(`/publications?page=${page}`);
+    return response;
   }
 
   async getPost(id) {
