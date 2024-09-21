@@ -6,7 +6,6 @@ import "./postsStyles/PostsList.css";
 
 export default function PostsList() {
   const { posts, loading } = usePosts();
-
   return (
     <section className="postsList">
       {loading && <LoadingPage />}

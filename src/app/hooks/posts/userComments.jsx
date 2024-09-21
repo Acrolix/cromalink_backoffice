@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import api from "../../../api";
+import APIPosts from "../../../services/posts/postsServices";
 
 export default function useComments(postId) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.getComments(postId).then((data) => {
+    APIPosts.getComments(postId).then((data) => {
       setComments(data);
       setLoading(false);
     });

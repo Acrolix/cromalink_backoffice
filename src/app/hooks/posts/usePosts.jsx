@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import api from "../../../api";
+import PostsService from "../../../services/posts/postsServices";
 
 export default function usePosts(id = false) {
   const [posts, setPosts] = useState([]);
@@ -7,13 +7,13 @@ export default function usePosts(id = false) {
 
   useEffect(() => {
     if (id) {
-      api.getPost(id).then((data) => {
+      PostsService.getPost(id).then((data) => {
         setPosts(data);
         setLoading(false);
       });
       return;
     }
-    api.getPosts().then((data) => {
+    PostsService.getPosts().then((data) => {
       setPosts(data.data);
       setLoading(false);
     });

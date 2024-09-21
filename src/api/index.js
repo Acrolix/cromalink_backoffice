@@ -1,28 +1,30 @@
-import { APIURL } from "../config";
+import axios from "axios";
+import { API_URL } from "../config";
 
+const API = (headers = {}) => {
+  return axios.create({
+    baseURL: API_URL,
+    headers: {
+      accept: "application/json",
+      ...headers,
+    },
+  });
+};
 
-class API {
-  constructor() {
-    this.url = APIURL;
-  }
+const APIAuth = (headers = {}) => {
+  const token =
+    localStorage.getItem("accessToken") ||
+    sessionStorage.getItem("accessToken");
 
-  async getPosts() {
-    const response = await fetch(`${this.url}/publicaciones`);
-    const data = await response.json();
-    return data;
-  }
+  if (token) headers.Authorization = `Bearer ${token}`;
 
-  async getPost(id) {
-    const response = await fetch(`${this.url}/publicaciones/${id}`);
-    const data = await response.json();
-    return data;
-  }
+  return axios.create({
+    baseURL: API_URL,
+    headers: {
+      accept: "application/json",
+      ...headers,
+    },
+  });
+};
 
-  async getComments(postId) {
-    const response = await fetch(`${this.url}/comentarios/${postId}`);
-    const data = await response.json();
-    return data;
-  }
-}
-
-export default new API();
+export { API, APIAuth };

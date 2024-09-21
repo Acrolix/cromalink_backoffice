@@ -10,14 +10,14 @@ export default function Post({ post }) {
   return (
     <Link to={`/posts/${post.id}`} className="postBody" key={post.id}>
       <div className="postTitle">{post.title}</div>
-      <div className="postComments">
+      {/* <div className="postComments">
         <b>{post.comments.length}</b> {t("comments")}
       </div>
       <div className="postReactions">
         <b>{post.reactions.length}</b> {t("reactions")}
-      </div>
+      </div> */}
       <div className="postDate">{moment(post.created_at).format("L LTS")}</div>
-      <div className="postUser">@{post.created_by?.username}</div>
+      <div className="postUser">@{post.published_by?.email}</div>
     </Link>
   );
 }
