@@ -11,6 +11,7 @@ const LoadingBtn = () => {
 
 export default function Login() {
   const { t } = useTranslation("", { keyPrefix: "login" });
+  const [error, setError] = useState(false);
   const { login } = useContext(AuthContext);
 
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -24,9 +25,14 @@ export default function Login() {
   const onSubmit = (data) => {
     setSubmitLoading(true);
     data.preventDefault;
-    login(data).then(() => {
-      setSubmitLoading(false);
-    });
+    login(data)
+      .then(() => {
+        setSubmitLoading(false);
+      })
+      .catch((e) => {
+        setSubmitLoading(false);
+        setError(e.response.data);
+      });
   };
 
   return (
@@ -85,6 +91,8 @@ export default function Login() {
         <button type="submit" className="loginButton">
           {submitLoading ? <LoadingBtn /> : t("login")}
         </button>
+
+        <span className="loginError">{error && t("error.failed")}</span>
       </form>
       <small className="loginFooter">
         © {new Date().getFullYear()} Acrolix Technologies

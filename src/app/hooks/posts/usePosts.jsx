@@ -8,7 +8,7 @@ export default function usePosts(id = false) {
   useEffect(() => {
     if (id) {
       PostsService.getPost(id).then((data) => {
-        setPosts(data);
+        setPosts(data.data);
         setLoading(false);
       });
       return;

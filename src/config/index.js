@@ -1,3 +1,3 @@
 export const API_URL = "http://localhost:8000/api";
-export const CLIENT_ID = "9d0d25d2-6666-49ad-b427-6adbf7fc2a9d";
-export const SECRET = "zQfq3fkN9eZZeAS8jtg0dibap7TdT3N0MDaVf4Eo";
+export const CLIENT_ID = "9d45a62f-bd2d-4f6b-8806-5d0e323d09c4";
+export const SECRET = "dvdgEz7iR6ruZ1A9EOH9fARI0tJ5nZBihlIp3v0I";

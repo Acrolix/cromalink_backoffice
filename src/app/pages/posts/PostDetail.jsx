@@ -26,7 +26,7 @@ export default function PostDetail() {
         <b>{posts.reactions_count}</b> {t("reactions")}
       </div>
       <div className="postDetailBody">
-        <img src={posts.image} alt={posts.title} />
+        <img src={posts.published_by.avatar} alt="Post author" />
         <p>{posts.content}</p>
       </div>
       <PostComments postId={postId} />
