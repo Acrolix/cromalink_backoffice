@@ -16,4 +16,8 @@ async function logoutService() {
   return await APIAuth({}).post("/auth/logout");
 }
 
-export { loginService, logoutService };
+async function validateTokenService() {
+  return await APIAuth({}).get("/auth/validate");
+}
+
+export { loginService, logoutService, validateTokenService };

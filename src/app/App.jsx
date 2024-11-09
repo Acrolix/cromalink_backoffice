@@ -1,18 +1,19 @@
-import { lazy, Suspense, useContext } from "react";
-import "./App.css";
-import { AuthContext } from "../context/AuthContext.jsx";
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router";
 import LoadingPage from "../commons/LoadingPage/LoadingPage.jsx";
+import "./App.css";
 
 const Login = lazy(() => import("./session/login/Login.jsx"));
 const Layout = lazy(() => import("./layout/Layout.jsx"));
 
 function App() {
-  const { isLogged, loading } = useContext(AuthContext);
-
   return (
     <Suspense fallback={<LoadingPage />}>
       <title>Cromalink Backoffice</title>
-      {loading ? <LoadingPage /> : isLogged ? <Layout /> : <Login />}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Layout />} />
+      </Routes>
     </Suspense>
   );
 }

@@ -1,7 +1,9 @@
-import { lazy } from "react";
-import { Route, Routes } from "react-router";
+import { lazy, useEffect, useState } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router";
 import Eslogan from "../../assets/eslogan.svg";
 import Logo from "../../assets/logo.svg";
+import LoadingPage from "../../commons/LoadingPage/LoadingPage";
+import { validateTokenService } from "../../services/auth/authServices";
 import Navbar from "./drawer/Navbar";
 import "./Layout.css";
 
@@ -12,7 +14,28 @@ const EventsList = lazy(() => import("../pages/events/EventsList"));
 const PostDetail = lazy(() => import("../pages/posts/PostDetail"));
 
 export default function Layout() {
-  return (
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const validateToken = async () => {
+      await validateTokenService()
+        .then(() => {
+          setLoading(false);
+        })
+        .catch(() => {
+          localStorage.removeItem("accessToken");
+          sessionStorage.removeItem("accessToken");
+          navigate("/login");
+        });
+    };
+    validateToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return loading ? (
+    <LoadingPage />
+  ) : (
     <>
       <header className="layoutHeader">
         <img

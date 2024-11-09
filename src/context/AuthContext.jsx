@@ -36,8 +36,9 @@ export const AuthProvider = ({ children }) => {
         setIsLogged(true);
         return true;
       })
-      .catch(() => {
+      .catch((e) => {
         setIsLogged(false);
+        throw e;
       });
   };
 

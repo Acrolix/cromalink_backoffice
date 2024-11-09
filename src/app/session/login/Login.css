@@ -143,6 +143,15 @@
   animation: 1s linear infinite spinner;
 }
 
+.loginError {
+  color: #af2f3c;
+  font-size: 1em;
+  margin-bottom: 1em;
+  display: block;
+  font-weight: bold;
+  height: 1em;
+}
+
 @keyframes spinner {
   to {
     transform: rotate(360deg);

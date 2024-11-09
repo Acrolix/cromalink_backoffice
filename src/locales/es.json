@@ -20,7 +20,8 @@
             },
             "password": {
                 "required": "La contraseña es requerida"
-            }
+            },
+            "failed": "Email y/o contraseña incorrectos"
         }
     },
     "layout": {
