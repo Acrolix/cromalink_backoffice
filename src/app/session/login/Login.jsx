@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Eslogan from "../../../assets/eslogan.svg";
 import "./Login.css";
 import { AuthContext } from "../../../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const LoadingBtn = () => {
   return <span className="loadingBtn"></span>;
@@ -13,6 +14,7 @@ export default function Login() {
   const { t } = useTranslation("", { keyPrefix: "login" });
   const [error, setError] = useState(false);
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -28,6 +30,7 @@ export default function Login() {
     login(data)
       .then(() => {
         setSubmitLoading(false);
+        navigate("/");
       })
       .catch(() => {
         setSubmitLoading(false);
@@ -54,7 +57,7 @@ export default function Login() {
               required: t("error.email.required"),
               pattern: {
                 value:
-                  /^[A-Za-z0-9._%+-]+@(cromalink\.acrolix\.tech|acrolix\.tech)$/,
+                  /^[\w.-]+@(cromalink\.)?acrolix\.tech$/,
                 message: t("error.email.invalidDomain"),
               },
             })}

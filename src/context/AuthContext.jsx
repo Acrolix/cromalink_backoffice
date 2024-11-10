@@ -1,12 +1,15 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { loginService, logoutService } from "../services/auth/authServices";
+import { createContext } from "react";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const isLogged =
@@ -27,19 +30,20 @@ export const AuthProvider = ({ children }) => {
   }, [isLogged]);
 
   const login = async ({ email, password, remember }) => {
-    await loginService(email, password, remember)
-      .then((data) => {
-        const accessToken = data.data.access_token;
-        remember
-          ? localStorage.setItem("accessToken", accessToken)
-          : sessionStorage.setItem("accessToken", accessToken);
-        setIsLogged(true);
-        return true;
-      })
-      .catch((e) => {
-        setIsLogged(false);
-        throw e;
-      });
+    try {
+      const data = await loginService(email, password, remember);
+      if (!data.data.access_token) throw new Error("Invalid credentials");
+      const accessToken = data.data.access_token;
+      remember
+        ? localStorage.setItem("accessToken", accessToken)
+        : sessionStorage.setItem("accessToken", accessToken);
+      setIsLogged(true);
+      return await Promise.resolve(true);
+      // eslint-disable-next-line no-unused-vars
+    } catch (e) {
+      setIsLogged(false);
+      return await Promise.reject();
+    }
   };
 
   const logout = () => {
@@ -51,7 +55,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLogged, login, logout, loading }}>
+    <AuthContext.Provider
+      value={{ isLogged, login, logout, loading, setLoading, user, setUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

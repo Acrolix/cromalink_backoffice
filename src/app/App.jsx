@@ -4,6 +4,7 @@ import LoadingPage from "../commons/LoadingPage/LoadingPage.jsx";
 import "./App.css";
 
 const Login = lazy(() => import("./session/login/Login.jsx"));
+const Register = lazy(() => import("./session/register/Register.jsx"));
 const Layout = lazy(() => import("./layout/Layout.jsx"));
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       <title>Cromalink Backoffice</title>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Layout />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Layout />} />
       </Routes>
     </Suspense>
   );

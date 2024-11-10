@@ -1,11 +1,10 @@
-import { lazy, useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router";
+import { lazy } from "react";
+import { Route, Routes } from "react-router";
 import Eslogan from "../../assets/eslogan.svg";
-import Logo from "../../assets/logo.svg";
-import LoadingPage from "../../commons/LoadingPage/LoadingPage";
-import { validateTokenService } from "../../services/auth/authServices";
 import Navbar from "./drawer/Navbar";
 import "./Layout.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
 const PostsList = lazy(() => import("../pages/posts/PostsList"));
@@ -14,28 +13,8 @@ const EventsList = lazy(() => import("../pages/events/EventsList"));
 const PostDetail = lazy(() => import("../pages/posts/PostDetail"));
 
 export default function Layout() {
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const validateToken = async () => {
-      await validateTokenService()
-        .then(() => {
-          setLoading(false);
-        })
-        .catch(() => {
-          localStorage.removeItem("accessToken");
-          sessionStorage.removeItem("accessToken");
-          navigate("/login");
-        });
-    };
-    validateToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return loading ? (
-    <LoadingPage />
-  ) : (
+  const { user } = useContext(AuthContext);
+  return (
     <>
       <header className="layoutHeader">
         <img
@@ -45,7 +24,7 @@ export default function Layout() {
           className="headerEslogan"
         />
         <img
-          src={Logo}
+          src={user?.avatar}
           height="35"
           alt="Cromalink Logo"
           className="headerLogo"
@@ -64,6 +43,7 @@ export default function Layout() {
             <Route path="/posts/:id" element={<PostDetail />} />
             <Route path="/users" element={<UsersList />} />
             <Route path="/events" element={<EventsList />} />
+            <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </main>
       </div>

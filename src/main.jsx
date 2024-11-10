@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import "./index.css";
 import * as en from "./locales/en.json";
 import * as es from "./locales/es.json";
+import Auth from "./app/middleware/Auth.jsx";
 
 const resources = {
   es: {
@@ -36,7 +37,9 @@ createRoot(document.getElementById("root")).render(
           v7_startTransition: true,
         }}
       >
-        <App />
+        <Auth>
+          <App />
+        </Auth>
       </BrowserRouter>
     </AuthProvider>
   </StrictMode>

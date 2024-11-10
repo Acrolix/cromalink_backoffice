@@ -16,7 +16,8 @@ const APIAuth = (headers = {}) => {
     localStorage.getItem("accessToken") ||
     sessionStorage.getItem("accessToken");
 
-  if (token) headers.Authorization = `Bearer ${token}`;
+  if (!token) return axios.reject("No token provided");
+headers.Authorization = `Bearer ${token}`;
 
   return axios.create({
     baseURL: API_URL,

@@ -1,14 +1,10 @@
 import { API, APIAuth } from "../../api";
-import { CLIENT_ID, SECRET } from "../../config";
 
 async function loginService(email, password, remember_me) {
-  return await API({}).post("/oauth/token", {
-    username: email,
+  return await API({}).post("/auth/login", {
+    email,
     password,
     remember_me,
-    grant_type: "password",
-    client_id: CLIENT_ID,
-    client_secret: SECRET,
   });
 }
 
@@ -20,4 +16,8 @@ async function validateTokenService() {
   return await APIAuth({}).get("/auth/validate");
 }
 
-export { loginService, logoutService, validateTokenService };
+async function getUserService() {
+  return await APIAuth({}).get("/auth/me");
+}
+
+export { loginService, logoutService, validateTokenService, getUserService };
