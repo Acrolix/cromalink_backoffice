@@ -1,3 +1,6 @@
+.authorAvatar {
+  border-radius: 50%;
+}
 .postDetail {
   display: flex;
   flex-direction: column;

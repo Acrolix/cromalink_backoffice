@@ -5,7 +5,7 @@ const API = (headers = {}) => {
   return axios.create({
     baseURL: API_URL,
     headers: {
-      accept: "application/json",
+      Accept: "application/json",
       ...headers,
     },
   });
@@ -17,12 +17,12 @@ const APIAuth = (headers = {}) => {
     sessionStorage.getItem("accessToken");
 
   if (!token) return axios.reject("No token provided");
-headers.Authorization = `Bearer ${token}`;
+  headers.Authorization = `Bearer ${token}`;
 
   return axios.create({
     baseURL: API_URL,
     headers: {
-      accept: "application/json",
+      Accept: "application/json",
       ...headers,
     },
   });

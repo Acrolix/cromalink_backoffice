@@ -46,12 +46,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
-    logoutService().finally(() => {
-      localStorage.removeItem("accessToken");
-      sessionStorage.removeItem("accessToken");
-      location.reload();
-    });
+  const logout = async () => {
+    let res;
+    try {
+      const response = await logoutService();
+      if (response.status === 200) {
+        res = Promise.resolve(true);
+      }
+    } catch (e) {
+      res = Promise.reject(e);
+    }
+    localStorage.removeItem("accessToken");
+    sessionStorage.removeItem("accessToken");
+    location.reload();
+    return res;
   };
 
   return (

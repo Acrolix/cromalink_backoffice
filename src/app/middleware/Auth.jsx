@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 import LoadingPage from "../../commons/LoadingPage/LoadingPage";
+import { AuthContext } from "../../context/AuthContext";
+import { avatarGeneric } from "../../helpers/avatarGeneric";
 import {
   getUserService,
   validateTokenService,
 } from "../../services/auth/authServices";
+import { API_URL } from "../../config";
 
 const Auth = ({ children }) => {
   const navigate = useNavigate();
@@ -17,7 +19,13 @@ const Auth = ({ children }) => {
     const validateToken = async () => {
       try {
         await validateTokenService();
-        await getUserService().then((res) => setUser(res.data));
+        await getUserService().then((res) => {
+          const userData = res.data;
+          userData.avatar
+            ? (userData.avatar = `${API_URL}${userData.avatar}`)
+            : (userData.avatar = avatarGeneric(userData));
+          setUser(res.data);
+        });
         if (
           location.pathname === "/login" ||
           location.pathname === "/register"

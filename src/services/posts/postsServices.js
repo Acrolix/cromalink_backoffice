@@ -1,10 +1,11 @@
 import { APIAuth } from "../../api";
 
 class PostsService {
-  PostsService() {
-    if (typeof PostsService.instance === "object") {
+  constructor() {
+    if (PostsService.instance) {
       return PostsService.instance;
     }
+    PostsService.instance = this;
   }
 
   async getPosts(page = 1) {

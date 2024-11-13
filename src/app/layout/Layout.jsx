@@ -14,6 +14,7 @@ const PostDetail = lazy(() => import("../pages/posts/PostDetail"));
 
 export default function Layout() {
   const { user } = useContext(AuthContext);
+
   return (
     <>
       <header className="layoutHeader">
@@ -23,12 +24,14 @@ export default function Layout() {
           alt="Cromalink Slogan"
           className="headerEslogan"
         />
-        <img
-          src={user?.avatar}
-          height="35"
-          alt="Cromalink Logo"
-          className="headerLogo"
-        />
+        <div className="headerAvatarContainer">
+          <img
+            src={user?.avatar}
+            height="35"
+            alt="Cromalink Logo"
+            className="headerAvatar"
+          />
+        </div>
       </header>
       <div className="layoutContainer">
         <Navbar />

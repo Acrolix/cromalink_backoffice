@@ -42,5 +42,11 @@
         "reactions" : "Likes",
         "open" : "Open",
         "goBack" : "Go back"
+    },
+    "users": {
+        "comments": "Comments",
+        "reactions" : "Likes",
+        "open" : "Open",
+        "publications" : "Publications"
     }
 }

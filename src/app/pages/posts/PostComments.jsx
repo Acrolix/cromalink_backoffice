@@ -1,16 +1,13 @@
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import LoadingPage from "../../../commons/LoadingPage/LoadingPage";
-import useComments from "../../hooks/posts/userComments";
 
 import "./postsStyles/PostComments.css";
 
-export default function PostComment({ postId }) {
+export default function PostComment({ comments }) {
   const { t } = useTranslation("", { keyPrefix: "posts" });
-  const { comments, loadingComments } = useComments(postId);
+  console.log(comments);
   return (
     <section className="postDetailComments">
-      {loadingComments && <LoadingPage />}
       <h2>
         {comments.length} {t("comments")}
       </h2>
@@ -18,8 +15,8 @@ export default function PostComment({ postId }) {
         <div key={comment.id} className="postDetailComment">
           <div className="postDetailCommentDetail">
             <div className="postDetailCommentDetailUser">
-              <span>@{comment.created_by.username}</span>
-              {comment.created_by.first_name} {comment.created_by.last_name}
+              <span>@{comment.user?.username}</span>
+              {comment.user?.first_name} {comment.user?.last_name}
             </div>
             <div className="postDetailCommentDetailDate">
               {moment(comment.created_at).format("LL LTS")}

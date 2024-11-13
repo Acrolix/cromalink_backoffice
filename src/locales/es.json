@@ -43,5 +43,11 @@
         "reactions" : "Me gusta",
         "open" : "Abrir",
         "goBack" : "Regresar"
+    },
+    "users": {
+        "comments": "Comentarios",
+        "reactions" : "Me gustas",
+        "open" : "Abrir",
+        "publications" : "Publicaciones"
     }
 }

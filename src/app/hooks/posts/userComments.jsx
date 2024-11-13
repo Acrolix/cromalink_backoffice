@@ -6,10 +6,15 @@ export default function useComments(postId) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    APIPosts.getComments(postId).then((data) => {
-      setComments(data);
-      setLoading(false);
-    });
+    APIPosts.getComments(postId)
+      .then((response) => {
+        setComments(response.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setComments([]);
+        setLoading(false);
+      });
   }, [postId]);
 
   return { comments, loading };

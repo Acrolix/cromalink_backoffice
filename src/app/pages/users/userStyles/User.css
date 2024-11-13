@@ -1,0 +1,63 @@
+.userShow {
+  padding: 20px;
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.username {
+  font-weight: 600;
+  color: #ddd;
+  font-size: 16px;
+}
+
+.fullName {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.country {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.userStats {
+  margin-left: auto;
+  display: flex;
+  gap: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.stat strong {
+  color: #fff;
+  font-size: 16px;
+}

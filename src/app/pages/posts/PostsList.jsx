@@ -8,7 +8,7 @@ export default function PostsList() {
   const { posts, loading } = usePosts();
   return (
     <div className="postsListContainer">
-      <h1 className="postsListTitle">Posts</h1>
+      <h1 className="postsListTitle">Publicaciones</h1>
       <section className="postsList">
         {loading && <LoadingPage />}
         {posts.data?.data?.map((post) => (

@@ -37,9 +37,17 @@
   background-color: var(--color-bg-primary);
 }
 
-.headerLogo {
-  width: 50px;
+.headerAvatarContainer {
   height: 50px;
+  width: 50px;
+  overflow: hidden;
   margin-right: 1em;
   border-radius: 50%;
+}
+
+.headerAvatar {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  object-position: center;
 }
